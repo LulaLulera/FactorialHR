@@ -1,5 +1,6 @@
 import React, { useState, useEffect,Fragment } from 'react'
 import axios from 'axios'
+import Contact from './Contact'
 
 const Contacts = () => {
 	const [contacts, setContacts] = useState([])
@@ -14,15 +15,24 @@ const Contacts = () => {
 	}, [contacts.length])
 
 
-	const list = contacts.map( item => {
-		return (<li key={item.attributes.name}>{item.attributes.name}</li>)
+	const grid = contacts.map( item => {
+		return (
+			<Contact 
+				key={item.attributes.name}
+				attributes= {item.attributes}
+			/>
+		)
 	})
 
 	return (
-		<Fragment>
-			<div> prueba </div>
-			<ul>{list}</ul>
-		</Fragment>
+		<div className="home">
+			<header>
+				<h1>Contactos</h1>
+			</header>
+			<div className="grid">
+				{grid}
+			</div>
+		</div>
 	)
 }
 
