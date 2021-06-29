@@ -8,7 +8,7 @@ module Api
 			end
 
 			def show
-				contact = Contact.find_by(name: params[:name])
+				contact = Contact.find(id: params[:id])
 
 				render json: ContactSerializer.new(contact).serialized_json
 			end
@@ -24,7 +24,7 @@ module Api
 			end
 
 			def update
-				contact = Contact.find_by(name: params[:name])
+				contact = Contact.find(id: params[:id])
 
 				if contact.update(contact_params)
 					render json: ContactSerializer.new(contact).serialized_json
@@ -34,7 +34,7 @@ module Api
 			end
 
 			def destroy
-				contact = Contact.find_by(name: params[:name])
+				contact = Contact.find(id: params[:id])
 
 				if contact.destroy
 					head :no_content
@@ -45,7 +45,7 @@ module Api
 
 			private
 			def contact_params
-				params.require(:contact).oermnit(:name, :last_name, :email, :phone_number)
+				params.require(:contact).permnit(:name, :last_name, :email, :phone_number)
 			end
 		end
 	end
