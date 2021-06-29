@@ -45,7 +45,7 @@ module Api
 
 			private
 			def contact_params
-				params.require(:contact).permnit(:name, :last_name, :email, :phone_number)
+				params.require(:contact).permnit(:id, :name, :last_name, :email, :phone_number)
 			end
 		end
 	end

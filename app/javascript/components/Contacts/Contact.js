@@ -50,18 +50,18 @@ const LinkWrapper = styled.div`
 const Contact = (props) => {
 	return (
 		<Card>
-		  <ContactName>
-		  	{props.attributes.name} {props.attributes.last_name}
-		  </ContactName>
-		  <ContactEmail>
-		  	{props.attributes.email}
-		  </ContactEmail>
-		  <ContactPhone>
-		  	{props.attributes.phone_number}
-		  </ContactPhone>
-		  <LinkWrapper>
-			<Link to={"/contacts/${props.attribute.id}"}>Ver Contacto</Link>
-		  </LinkWrapper>
+			<ContactName>
+				{props.attributes.name} {props.attributes.last_name}
+			</ContactName>
+			<ContactEmail>
+				{props.attributes.email}
+			</ContactEmail>
+			<ContactPhone>
+				{props.attributes.phone_number}
+			</ContactPhone>
+			<LinkWrapper>
+				<Link to={"/contacts/" + props.attributes.id}>Ver Contacto</Link>
+			</LinkWrapper>
 		</Card>
 	  )
 }

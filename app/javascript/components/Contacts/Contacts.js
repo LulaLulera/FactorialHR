@@ -30,10 +30,7 @@ const Contacts = () => {
 
 	useEffect(()=>{
 		axios.get('/api/v1/contacts.json')
-		.then( resp => 
-		{
-			setContacts(resp.data.data)
-		})
+		.then( resp => setContacts(resp.data.data))
 		.catch( resp=> console.log(resp))		
 	}, [contacts.length])
 
@@ -41,7 +38,7 @@ const Contacts = () => {
 	const grid = contacts.map( item => {
 		return (
 			<Contact 
-				key={item.attributes.name}
+				key={item.attributes.id}
 				attributes= {item.attributes}
 			/>
 		)
