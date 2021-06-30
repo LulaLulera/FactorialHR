@@ -2,6 +2,7 @@ import React, { useState, useEffect,Fragment } from 'react'
 import axios from 'axios'
 import Contact from './Contact'
 import styled from 'styled-components'
+import ContactForm from './ContactForm'
 
 
 const Home = styled.div`
@@ -11,6 +12,7 @@ const Home = styled.div`
 	margin-right: auto;
 `
 const Header = styled.header`
+	text-align: center;
 	padding: 0px 100px 0px 100px;
 	h1{
 		font-size: 42px;
@@ -22,21 +24,6 @@ const Grid = styled.div`
 	grid-gap: 20px;
 	width: 100%;
 	padding: 20px;
-`
-const CreateBtn = styled.button`
-	margin: 0px 100px;
-	color: #fff;
-	background-color: #71b406;
-	border-radius: 4px;   
-	padding:12px 12px;  
-	border: 1px solid #71b406;
-	font-size:18px;
-	cursor: pointer;
-	transition: ease-in-out 0.2s;
-	&:hover {
-		background: #71b406cf;
-		border-color: #71b406cf;
-	}
 `
 
 const Contacts = () => {
@@ -63,7 +50,7 @@ const Contacts = () => {
 			<Header>
 				<h1>Contactos</h1>
 			</Header>
-			<CreateBtn type="Submit">Nuevo Contacto</CreateBtn>
+			<ContactForm/>
 			<Grid>
 				{grid}
 			</Grid>
