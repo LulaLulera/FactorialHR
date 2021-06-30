@@ -8,8 +8,8 @@ module Api
 			end
 
 			def show
-				contact = Contact.find(id: params[:id])
-
+				contact = Contact.find(params[:id])
+				
 				render json: ContactSerializer.new(contact).serialized_json
 			end
 
@@ -24,7 +24,7 @@ module Api
 			end
 
 			def update
-				contact = Contact.find(id: params[:id])
+				contact = Contact.find(params[:id])
 
 				if contact.update(contact_params)
 					render json: ContactSerializer.new(contact).serialized_json
@@ -34,7 +34,7 @@ module Api
 			end
 
 			def destroy
-				contact = Contact.find(id: params[:id])
+				contact = Contact.find(params[:id])
 
 				if contact.destroy
 					head :no_content

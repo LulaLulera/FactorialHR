@@ -1,7 +1,77 @@
-import React from 'react'
+import React, { useState, useEffect, Link } from 'react'
+import axios from 'axios'
+import Main from './Main'
+import styled from 'styled-components'
 
-const Contact = () => {
-	return <div> prueba individual </div>
+const Wrapper = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+`
+
+const Column = styled.div`
+	margin-top: 30px;
+	background: #ceefc5;
+	max-width: 50%;
+	width: 22%;
+	float: left;
+	height: 40vh;
+`
+const LinkWrapper = styled.div`
+	margin: 30px 0 20px 0;
+	height:50px;
+	a {
+		color: #fff;
+		background-color: #71b406;
+		border-radius: 4px;
+		padding: 10px 50px;
+		cursor: pointer;
+		border-radius: 3px;
+		border: 1px solid #71b406;
+		text-align: center;
+		line-height: 20px;
+		min-height: 40px;
+		margin: 7px;
+		font-weight: 600;
+		text-decoration: none;
+		width: 100%;
+		transition: ease-in-out 0.1s;
+		&:hover{
+		border-color: #619a07;
+		background: #619a07;
+		}
+	}
+`
+
+const Contact = (props) => {
+	const [contact, setContact] = useState({})
+	const [loaded, setLoaded] = useState(false)
+
+	useEffect(() =>{
+		const  id = props.match.params.id
+		const url = `/api/v1/contacts/${id}`
+
+		axios.get(url)
+		.then( resp => {
+			setContact(resp.data) 
+			setLoaded(true)
+		})
+		.catch( resp => console.log(resp) )
+	}, [])
+
+	return (
+		<Wrapper>
+			<Column>
+				{
+					loaded &&
+					<Main 
+						attributes={contact.data.attributes}
+				    />	
+				}
+						
+			</Column>
+		</Wrapper>
+		
+	)
 }
 
 export default Contact
