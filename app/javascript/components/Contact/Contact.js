@@ -10,11 +10,10 @@ const Wrapper = styled.div`
 
 const Column = styled.div`
 	margin-top: 30px;
-	background: #ceefc5;
 	max-width: 50%;
-	width: 22%;
+	width: 15%;
 	float: left;
-	height: 40vh;
+	height: 60vh;
 `
 const LinkWrapper = styled.div`
 	margin: 30px 0 20px 0;
@@ -39,6 +38,37 @@ const LinkWrapper = styled.div`
 		border-color: #619a07;
 		background: #619a07;
 		}
+	}
+`
+const SubmitBtn = styled.button`
+	margin-bottom: 10px;
+	color: #fff;
+	background-color: #71b406;
+	border-radius: 4px;   
+	padding:12px 12px;  
+	border: 1px solid #71b406;
+	width:100%;
+	font-size:18px;
+	cursor: pointer;
+	transition: ease-in-out 0.2s;
+	&:hover {
+		background: #71b406cf;
+		border-color: #71b406cf;
+	}
+`
+const DeleteBtn = styled.button`
+	color: #fff;
+	background-color: #d01a1a;
+	border-radius: 4px;   
+	padding:12px 12px;  
+	border: 1px solid #d01a1a;
+	width:100%;
+	font-size:18px;
+	cursor: pointer;
+	transition: ease-in-out 0.2s;
+	&:hover {
+		background: #cc3131;
+		border-color: #cc3131;
 	}
 `
 
@@ -67,7 +97,12 @@ const Contact = (props) => {
 						attributes={contact.data.attributes}
 				    />	
 				}
-						
+			<SubmitBtn type="Submit">Editar</SubmitBtn>
+			<DeleteBtn type="Submit">Eliminar</DeleteBtn>
+			{ 
+			props.error && 
+			<Error>{props.error}</Error>
+			}	
 			</Column>
 		</Wrapper>
 		

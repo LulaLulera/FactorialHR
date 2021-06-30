@@ -23,7 +23,21 @@ const Grid = styled.div`
 	width: 100%;
 	padding: 20px;
 `
-
+const CreateBtn = styled.button`
+	margin: 0px 100px;
+	color: #fff;
+	background-color: #71b406;
+	border-radius: 4px;   
+	padding:12px 12px;  
+	border: 1px solid #71b406;
+	font-size:18px;
+	cursor: pointer;
+	transition: ease-in-out 0.2s;
+	&:hover {
+		background: #71b406cf;
+		border-color: #71b406cf;
+	}
+`
 
 const Contacts = () => {
 	const [contacts, setContacts] = useState([])
@@ -49,6 +63,7 @@ const Contacts = () => {
 			<Header>
 				<h1>Contactos</h1>
 			</Header>
+			<CreateBtn type="Submit">Nuevo Contacto</CreateBtn>
 			<Grid>
 				{grid}
 			</Grid>
